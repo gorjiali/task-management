@@ -1,16 +1,10 @@
+import * as React from "react";
+import NewTaskForm from "./NewTaskForm";
+
 function Home() {
   return (
     <main>
-      <section>
-        <h2>Add a new Task</h2>
-        <form>
-          <label htmlFor="newTaskTitle">Title</label>
-          <input type="text" id="newTaskTitle" />
-          <label htmlFor="newTaskDescription">Description</label>
-          <textarea id="newTaskDescription"></textarea>
-          <button type="submit">+ Add</button>
-        </form>
-      </section>
+      <NewTaskForm />
       <section>
         <h2>Tasks</h2>
         <div>
