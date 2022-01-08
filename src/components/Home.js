@@ -15,7 +15,7 @@ function Home() {
   return (
     <main>
       <NewTaskForm />
-      <TaskList />
+      <TaskList tasks={tasks} />
     </main>
   );
 }
