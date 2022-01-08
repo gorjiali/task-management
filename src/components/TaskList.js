@@ -1,50 +1,24 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import TaskCard from "./TaskCard";
 
-function TaskList() {
+function TaskList({tasks}) {
   return (
     <section>
       <h2>Tasks</h2>
       <div>
-        <TaskCard
-          task={{
-            id: "1",
-            title: "Task title goes here",
-            description:
-              "Task description goes here if test size is more than 3, paragraphs it is trimmed",
-            status: "Todo",
-          }}
-        />
-        <TaskCard
-          task={{
-            id: "2",
-            title: "Task title goes here",
-            description:
-              "Task description goes here if test size is more than 3, paragraphs it is trimmed",
-            status: "Todo",
-          }}
-        />
-        <TaskCard
-          task={{
-            id: "3",
-            title: "Task title goes here",
-            description:
-              "Task description goes here if test size is more than 3, paragraphs it is trimmed",
-            status: "Todo",
-          }}
-        />
-        <TaskCard
-          task={{
-            id: "4",
-            title: "Task title goes here",
-            description:
-              "Task description goes here if test size is more than 3, paragraphs it is trimmed",
-            status: "Todo",
-          }}
-        />
+        {!tasks.length ? (
+          <p>there is no task!</p>
+        ) : (
+          tasks.map((task) => <TaskCard key={task.id} task={task} />)
+        )}
       </div>
     </section>
   );
 }
+
+TaskList.propTypes = {
+  tasks: PropTypes.array.isRequired,
+};
 
 export default TaskList;

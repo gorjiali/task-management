@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <main>
-      <NewTaskForm />
+      <NewTaskForm onAddNewTask={addNewTask} />
       <TaskList tasks={tasks} />
     </main>
   );
