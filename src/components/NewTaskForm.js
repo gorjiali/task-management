@@ -1,15 +1,16 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import {v4 as uuidv4} from "uuid";
+import {TasksContext} from "../contexts/TasksContext";
 
-function NewTaskForm({onAddNewTask}) {
+function NewTaskForm() {
+  const {addTask} = React.useContext(TasksContext);
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
     if (title && description) {
-      onAddNewTask({
+      addTask({
         id: uuidv4(),
         status: "Todo",
         title,
@@ -48,9 +49,5 @@ function NewTaskForm({onAddNewTask}) {
     </section>
   );
 }
-
-NewTaskForm.propTypes = {
-  onAddNewTask: PropTypes.func.isRequired,
-};
 
 export default NewTaskForm;

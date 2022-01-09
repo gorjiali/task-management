@@ -3,19 +3,10 @@ import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
 
 function Home() {
-  const [tasks, setTasks] = React.useState([]);
-
-  function addNewTask(newTask) {
-    setTasks([
-      newTask,
-      ...tasks,
-    ]);
-  }
-
   return (
     <main>
-      <NewTaskForm onAddNewTask={addNewTask} />
-      <TaskList tasks={tasks} />
+      <NewTaskForm />
+      <TaskList />
     </main>
   );
 }
