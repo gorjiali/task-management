@@ -1,15 +1,16 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function TaskCard({task}) {
-  const {title, description, status} = task;
+  const {id, title, description, status} = task;
 
   return (
     <article>
       <h3>{title}</h3>
       <p>{description}</p>
       <span>{status}</span>
-      <button>Edit</button>
+      <Link to={`/edit/${id}`}>Edit</Link>
     </article>
   );
 }
