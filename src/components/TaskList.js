@@ -1,8 +1,10 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import TaskCard from "./TaskCard";
+import {TasksContext} from "../contexts/TasksContext";
 
-function TaskList({tasks}) {
+function TaskList() {
+  const {tasks} = React.useContext(TasksContext);
+
   return (
     <section>
       <h2>Tasks</h2>
@@ -16,9 +18,5 @@ function TaskList({tasks}) {
     </section>
   );
 }
-
-TaskList.propTypes = {
-  tasks: PropTypes.array.isRequired,
-};
 
 export default TaskList;
