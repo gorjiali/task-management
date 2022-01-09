@@ -12,7 +12,7 @@ function NewTaskForm() {
     if (title && description) {
       addTask({
         id: uuidv4(),
-        status: "Todo",
+        status: "ToDo",
         title,
         description,
       });
