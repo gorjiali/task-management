@@ -10,13 +10,22 @@ function TasksContextProvider(props) {
     [setTasks]
   );
 
+  const editTask = React.useCallback((editedTask) =>
+    setTasks((prevTasks) =>
+      prevTasks.map((prevTask) =>
+        prevTask.id === editedTask.id ? editedTask : prevTask
+      )
+    )
+  );
+
   const value = React.useMemo(() => {
     return {
       tasks,
       addTask,
+      editTask
     };
   }, [tasks]);
-  
+
   return <TasksContext.Provider value={value} {...props} />;
 }
 
