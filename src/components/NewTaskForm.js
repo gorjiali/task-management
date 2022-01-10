@@ -1,6 +1,11 @@
 import * as React from "react";
 import {v4 as uuidv4} from "uuid";
 import {TasksContext} from "../contexts/TasksContext";
+import styles from "./NewTaskForm.module.scss";
+import BaseTextArea from "./Base/BaseTextArea";
+import BaseTextField from "./Base/BaseTextField";
+import BaseButton from "./Base/BaseButton";
+import {ReactComponent as PlusIcon} from "./../assets/svgIcons/plus.svg";
 
 function NewTaskForm() {
   const {addTask} = React.useContext(TasksContext);
@@ -26,25 +31,32 @@ function NewTaskForm() {
   }
 
   return (
-    <section>
-      <h2>Add a new Task</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="newTaskTitle">Title</label>
-        <input
-          type="text"
-          id="newTaskTitle"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <label htmlFor="newTaskDescription">Description</label>
-        <textarea
-          id="newTaskDescription"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
-        <button disabled={!title || !description} type="submit">
-          + Add
-        </button>
+    <section className={styles.container}>
+      <h2 className={styles.formHeader}>Add a new Task</h2>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.titleInput}>
+          <BaseTextField
+            label="Title"
+            type="text"
+            value={title}
+            maxLength="20"
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className={styles.desInput}>
+          <BaseTextArea
+            label="Description"
+            rows="5"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div className={styles.action}>
+          <BaseButton disabled={!title || !description} type="submit">
+            <PlusIcon fill="#fff" width="1rem" />
+            Add
+          </BaseButton>
+        </div>
       </form>
     </section>
   );
