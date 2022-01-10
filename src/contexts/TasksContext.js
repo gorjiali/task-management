@@ -15,7 +15,8 @@ function TasksContextProvider(props) {
       prevTasks.map((prevTask) =>
         prevTask.id === editedTask.id ? editedTask : prevTask
       )
-    )
+    ),
+    [setTasks]
   );
 
   const value = React.useMemo(() => {
@@ -24,7 +25,7 @@ function TasksContextProvider(props) {
       addTask,
       editTask
     };
-  }, [tasks]);
+  }, [tasks, addTask, editTask]);
 
   return <TasksContext.Provider value={value} {...props} />;
 }
