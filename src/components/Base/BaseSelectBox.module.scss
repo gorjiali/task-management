@@ -1,0 +1,73 @@
+@import "./../../styles/variables";
+
+.select {
+  position: relative;
+}
+.select-text {
+  position: relative;
+  background-color: $light-gray;
+	border-radius: 4px 4px 0 0;
+  width: 100%;
+  padding: 13px 10px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+/* Remove focus */
+.select-text:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+
+/* Use custom arrow */
+.select .select-text {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.select:after {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  /* Styling the down arrow */
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: "";
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
+.select-label {
+  color: rgba(0, 0, 0, 0.26);
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 10px;
+  transition: 0.1s ease all;
+}
+
+/* active state */
+.select-text:focus ~ .select-label,
+.select-text:valid ~ .select-label {
+  color: #2f80ed;
+  top: -20px;
+  transition: 0.1s ease all;
+  font-size: 14px;
+}
+
+.select-highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
