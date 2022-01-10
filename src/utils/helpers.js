@@ -10,4 +10,8 @@ function getAllowedStatusTransitions(baseStatus) {
   return allowedStatusTransitions[baseStatus] || [];
 }
 
-export {getAllowedStatusTransitions};
+function getTrimmed(str, maxLength) {
+  return str.length > maxLength ? `${str.slice(0, maxLength)}...` : str;
+}
+
+export {getAllowedStatusTransitions, getTrimmed};

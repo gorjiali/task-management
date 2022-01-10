@@ -1,0 +1,15 @@
+@mixin main-header {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+@mixin label-inactive() {
+  font-size: 0.9rem;
+  transform: translateY(0);
+}
+
+@mixin label-active() {
+  font-size: 0.75rem;
+  transform: translateY(-14px);
+}
