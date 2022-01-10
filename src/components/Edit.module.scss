@@ -1,0 +1,37 @@
+@import "./../styles/variables";
+@import "./../styles/mixins";
+
+.container {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    @include main-header;
+    margin-bottom: 1.2rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.7rem;
+  }
+
+  .form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 40rem;
+    margin: auto;
+  }
+}
+
+.emptyMsg {
+  padding: 1.5rem;
+
+  .homeLink {
+    font-size: 1.5rem;
+    margin-left: 0.5rem
+  }
+}
