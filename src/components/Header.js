@@ -1,11 +1,12 @@
 import * as React from "react";
 import useMatchName from "../hooks/useMatchName";
+import styles from "./Header.module.scss";
 
 function Header() {
   const matchName = useMatchName();
   return (
-    <header>
-      <h1>{`Task Management > ${matchName}`}</h1>
+    <header className={styles.header}>
+      <h3 className={styles.navigator}>{`Task Management > ${matchName}`}</h3>
     </header>
   );
 }
